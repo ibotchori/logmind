@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     backgroundColor: "#F0EFEF",
     width: "100%",
     height: "100vh",
-    marginLeft: '90px'
+    marginLeft: '91px'
   },
 });
 
@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <SideBar></SideBar>
+      <SideBar/>
       <div className={classes.page}>{children}</div>
     </div>
   );

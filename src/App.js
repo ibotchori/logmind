@@ -1,10 +1,13 @@
 import Layout from "./components/Layout";
+import Search from "./components/Search/Search";
 
 function App() {
 
   return (
     <div>
-      <Layout>123</Layout>
+      <Layout>
+        <Search/>
+      </Layout>
     </div>
   );
 }
