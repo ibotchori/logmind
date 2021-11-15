@@ -1,11 +1,11 @@
-import SideBar from "./components/SideBar/SideBar";
-
+import Layout from "./components/Layout";
 
 function App() {
 
-  return (<>
-<SideBar/>
-</>
+  return (
+    <div>
+      <Layout>123</Layout>
+    </div>
   );
 }
 
