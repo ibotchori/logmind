@@ -17,7 +17,7 @@ const Search = () => {
         }}
       >
         <Input
-          style={{ color: "#F0F0F0", paddingLeft: "20px" }}
+          style={{ color: "#F0F0F0", paddingLeft: "20px", width: "100%" }}
           disableUnderline={true}
           placeholder="Search by keyword..."
         />
