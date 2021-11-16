@@ -110,10 +110,10 @@ const MainContent = () => {
           </Typography>
           <Typography
             style={{
-              marginRight: "35px",
+              marginRight: "30px",
             }}
           >
-            14000
+            24 000
           </Typography>
           <Typography
             style={{
@@ -123,7 +123,7 @@ const MainContent = () => {
               padding: "2px 20px",
               borderRadius: "5px",
               color: "white",
-              marginRight: "80px",
+              marginRight: "85px",
             }}
           >
             high
@@ -141,10 +141,10 @@ const MainContent = () => {
           </Typography>
           <Typography
             style={{
-              marginRight: "35px",
+              marginRight: "30px",
             }}
           >
-            14000
+            14 000
           </Typography>
           <Typography
             style={{
@@ -154,7 +154,7 @@ const MainContent = () => {
               padding: "2px 20px",
               borderRadius: "5px",
               color: "white",
-              marginRight: "80px",
+              marginRight: "85px",
             }}
           >
             low
@@ -172,10 +172,10 @@ const MainContent = () => {
           </Typography>
           <Typography
             style={{
-              marginRight: "35px",
+              marginRight: "30px",
             }}
           >
-            14000
+            18 000
           </Typography>
           <Typography
             style={{
@@ -185,7 +185,7 @@ const MainContent = () => {
               padding: "2px 20px",
               borderRadius: "5px",
               color: "white",
-              marginRight: "80px",
+              marginRight: "85px",
             }}
           >
             medium
