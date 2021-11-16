@@ -1,3 +1,4 @@
+import MainChart from "./components/Chart/MainChart";
 import Layout from "./components/Layout";
 import Search from "./components/Search/Search";
 
@@ -7,6 +8,7 @@ function App() {
     <div>
       <Layout>
         <Search/>
+        <MainChart/>
       </Layout>
     </div>
   );
