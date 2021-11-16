@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Input from "@mui/material/Input";
 import { Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
+import { useSelector } from "react-redux";
 
 const Search = () => {
+  const data = useSelector((state) => state.getDummyData.data);
+
+  // const [searchResult, setSearchResult] = useState([]);
+  // useEffect(() => {
+  //   setSearchResult(data.length);
+  // }, [data]);
+
   return (
     <>
       <Box
@@ -24,7 +32,9 @@ const Search = () => {
       </Box>
       <Box sx={{ display: "flex", paddingLeft: "40px", paddingTop: "15px" }}>
         <CheckIcon fontSize="small" sx={{ paddingRight: "5px" }} />
-        <Typography variant="subtitle2">1245454 results found</Typography>
+        <Typography variant="subtitle2">
+          {data.length ? data.length : 0} results found
+        </Typography>
       </Box>
     </>
   );
