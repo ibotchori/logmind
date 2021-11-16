@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-function MainChart() {
+function EventsChart() {
   const data = useSelector((state) => state.getDummyData.data);
 
   console.log(data)
@@ -62,4 +62,4 @@ function MainChart() {
   );
 }
 
-export default MainChart;
+export default EventsChart;
