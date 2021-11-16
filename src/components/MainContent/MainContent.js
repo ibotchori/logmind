@@ -4,7 +4,10 @@ import TimelineIcon from "@mui/icons-material/Timeline";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import ViewDayIcon from "@mui/icons-material/ViewDay";
+import Button from "@mui/material/Button";
 import { Box } from "@mui/system";
+import { Typography } from "@mui/material";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 const MainContent = () => {
   /* Toggle icons */
@@ -20,13 +23,30 @@ const MainContent = () => {
       width: "96%",
       margin: "20px 40px",
       display: "flex",
+      flexDirection: "column",
+    },
+    toggleButtonBox: {
+      display: "flex",
+      justifyContent: "flex-end",
+      padding: "25px 35px",
+    },
+    buttonBox: {
+      backgroundColor: "#5B88FB",
+      display: "flex",
+      justifyContent: "center",
+      marginRight: "35px",
+    },
+    buttonBoxChild: {
+      display: "flex",
+      justifyContent: "space-between",
+      width: "70%",
     },
   });
   const classes = useStyles();
 
   return (
     <Box className={classes.root}>
-      <Box style={{ width: "100%",  display: "flex", justifyContent: "flex-end", padding: "25px 35px" }}>
+      <Box className={classes.toggleButtonBox}>
         <ToggleButtonGroup
           value={alignment}
           exclusive
@@ -40,6 +60,32 @@ const MainContent = () => {
             <TimelineIcon />
           </ToggleButton>
         </ToggleButtonGroup>
+      </Box>
+      <Box className={classes.buttonBox}>
+        <Box
+          className={classes.buttonBoxChild}
+        >
+          <Button
+            variant="text"
+            style={{ textTransform: "none", color: "white", padding: "12px" }}
+          >
+            Time
+            <KeyboardArrowDownIcon style={{ paddingLeft: "5px" }} />
+          </Button>
+          <Button
+            variant="text"
+            style={{ textTransform: "none", color: "white", padding: "12px" }}
+          >
+            Count
+            <KeyboardArrowDownIcon style={{ paddingLeft: "5px" }} />
+          </Button>
+          <Button
+            variant="disabled"
+            style={{ textTransform: "none", color: "white", padding: "12px" }}
+          >
+            Severity
+          </Button>
+        </Box>
       </Box>
     </Box>
   );
