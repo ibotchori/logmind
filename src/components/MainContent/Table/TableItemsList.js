@@ -11,16 +11,34 @@ const TableItemsList = () => {
   /* Get data from redux */
   const data = useSelector((state) => state.getDummyData.data);
 
+  /* Sorted data on buttons click */
+  const [sortedData, setSortedData] = useState(data);
+
   /* Count & Time  buttons click */
   const [timeButtonArrowPosition, SetTimeButtonArrowPosition] = useState(false);
   const [countButtonArrowPosition, SetCountButtonArrowPosition] =
     useState(false);
 
+  // Time button click
   const handleTimeClick = () => {
     SetTimeButtonArrowPosition(!timeButtonArrowPosition);
   };
+
+  // Count button click
   const handleCountClick = () => {
     SetCountButtonArrowPosition(!countButtonArrowPosition);
+    setSortedData(
+      // Sort array of objects by property
+      sortedData.sort((a, b) =>
+        countButtonArrowPosition
+          ? a.Count > b.Count
+            ? 1
+            : -1
+          : a.Count < b.Count
+          ? 1
+          : -1
+      )
+    );
   };
 
   /* Custom Styles */
@@ -87,7 +105,7 @@ const TableItemsList = () => {
           </Button>
         </Box>
       </Box>
-      {data.map((item) => (
+      {sortedData.map((item) => (
         <TableItem
           time={item.time}
           count={item.Count}
