@@ -25,7 +25,7 @@ const TableItemsList = () => {
     // Sort array of objects by property
     setSortedData(
       sortedData.sort((a, b) =>
-        countButtonArrowPosition
+      timeButtonArrowPosition
           ? +a.time < +b.time
             ? 1
             : -1
