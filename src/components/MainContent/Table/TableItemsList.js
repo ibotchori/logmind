@@ -22,6 +22,18 @@ const TableItemsList = () => {
   // Time button click
   const handleTimeClick = () => {
     SetTimeButtonArrowPosition(!timeButtonArrowPosition);
+    // Sort array of objects by property
+    setSortedData(
+      sortedData.sort((a, b) =>
+        countButtonArrowPosition
+          ? +a.time < +b.time
+            ? 1
+            : -1
+          : +a.time > +b.time
+          ? 1
+          : -1
+      )
+    );
   };
 
   // Count button click

@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   page: {
     backgroundColor: "#F0EFEF",
     width: "100%",
-    height: "100vh",
+    minHeight: "100vh",
     marginLeft: '91px'
   },
 });

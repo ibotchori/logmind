@@ -18,7 +18,7 @@ const MainContent = () => {
   const useStyles = makeStyles({
     root: {
       backgroundColor: "white",
-      paddingBottom: "70px",
+      paddingBottom: "50px",
       width: "96%",
       margin: "20px 40px",
       display: "flex",
