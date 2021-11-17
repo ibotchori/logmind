@@ -8,8 +8,8 @@ import { Box } from "@mui/system";
 import TableItemsList from "./Table/TableItemsList";
 
 const MainContent = () => {
-  /* Toggle icons */
-  const [alignment, setAlignment] = useState("left");
+  /* Toggle buttons */
+  const [alignment, setAlignment] = useState("table");
   const handleAlignment = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
@@ -18,6 +18,7 @@ const MainContent = () => {
   const useStyles = makeStyles({
     root: {
       backgroundColor: "white",
+      paddingBottom: "50px",
       width: "96%",
       margin: "20px 40px",
       display: "flex",
@@ -40,15 +41,15 @@ const MainContent = () => {
           onChange={handleAlignment}
           aria-label="text alignment"
         >
-          <ToggleButton value="left" aria-label="left aligned">
+          <ToggleButton value="table" aria-label="left aligned">
             <ViewDayIcon fontSize="small" />
           </ToggleButton>
-          <ToggleButton fontSize="small" value="right" aria-label="centered">
+          <ToggleButton fontSize="small" value="chart" aria-label="centered">
             <TimelineIcon />
           </ToggleButton>
         </ToggleButtonGroup>
       </Box>
-     <TableItemsList/>
+      {alignment === "table" ? <TableItemsList /> : console.log("test")}
     </Box>
   );
 };
