@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
 import Button from "@mui/material/Button";
 import { Box } from "@mui/system";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import TableItem from "./TableItem";
 
 const TableItemsList = () => {
+
+  /* Count & Time  buttons click */
+  const [timeButtonArrowPosition, SetTimeButtonArrowPosition] = useState(false);
+  const [countButtonArrowPosition, SetCountButtonArrowPosition] =
+    useState(false);
+
+  const handleTimeClick = () => {
+    SetTimeButtonArrowPosition(!timeButtonArrowPosition);
+  };
+  const handleCountClick = () => {
+    SetCountButtonArrowPosition(!countButtonArrowPosition);
+  };
+
   /* Custom Styles */
   const useStyles = makeStyles({
     buttonBox: {
@@ -39,18 +53,28 @@ const TableItemsList = () => {
       <Box className={classes.buttonBox}>
         <Box className={classes.buttonBoxChild}>
           <Button
+            onClick={handleTimeClick}
             variant="text"
             style={{ textTransform: "none", color: "white", padding: "12px" }}
           >
             Time
-            <KeyboardArrowDownIcon style={{ paddingLeft: "5px" }} />
+            {timeButtonArrowPosition ? (
+              <KeyboardArrowDownIcon style={{ paddingLeft: "5px" }} />
+            ) : (
+              <KeyboardArrowUpIcon style={{ paddingLeft: "5px" }} />
+            )}
           </Button>
           <Button
+            onClick={handleCountClick}
             variant="text"
             style={{ textTransform: "none", color: "white", padding: "12px" }}
           >
             Count
-            <KeyboardArrowDownIcon style={{ paddingLeft: "5px" }} />
+            {countButtonArrowPosition ? (
+              <KeyboardArrowDownIcon style={{ paddingLeft: "5px" }} />
+            ) : (
+              <KeyboardArrowUpIcon style={{ paddingLeft: "5px" }} />
+            )}
           </Button>
           <Button
             variant="disabled"
