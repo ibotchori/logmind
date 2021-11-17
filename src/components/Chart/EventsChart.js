@@ -13,6 +13,7 @@ import {
 } from "recharts";
 
 function EventsChart() {
+  /* Get data from redux */
   const data = useSelector((state) => state.getDummyData.data);
 
   /* Custom Styles */

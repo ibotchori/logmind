@@ -5,8 +5,11 @@ import { Box } from "@mui/system";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import TableItem from "./TableItem";
+import { useSelector } from "react-redux";
 
 const TableItemsList = () => {
+  /* Get data from redux */
+  const data = useSelector((state) => state.getDummyData.data);
 
   /* Count & Time  buttons click */
   const [timeButtonArrowPosition, SetTimeButtonArrowPosition] = useState(false);
@@ -84,11 +87,13 @@ const TableItemsList = () => {
           </Button>
         </Box>
       </Box>
-
-      <TableItem time="2020-11-01 06:25:01" count="24 000" severity="high" />
-      <TableItem time="2020-11-01 06:25:01" count="28 000" severity="medium" />
-      <TableItem time="2020-11-01 06:25:01" count="14 000" severity="high" />
-      <TableItem time="2020-11-01 06:25:01" count="8 000" severity="low" />
+      {data.map((item) => (
+        <TableItem
+          time={item.time}
+          count={item.Count}
+          severity={item.priority}
+        />
+      ))}
     </div>
   );
 };
