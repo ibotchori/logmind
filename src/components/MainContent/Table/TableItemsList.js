@@ -61,10 +61,10 @@ const TableItemsList = () => {
         </Box>
       </Box>
 
-      <TableItem />
-      <TableItem />
-      <TableItem />
-      <TableItem />
+      <TableItem time="2020-11-01 06:25:01" count="24 000" severity="high" />
+      <TableItem time="2020-11-01 06:25:01" count="28 000" severity="medium" />
+      <TableItem time="2020-11-01 06:25:01" count="14 000" severity="high" />
+      <TableItem time="2020-11-01 06:25:01" count="8 000" severity="low" />
     </div>
   );
 };

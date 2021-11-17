@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@mui/styles";
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 
-const TableItem = () => {
+const TableItem = ({ time, count, severity }) => {
 
-      /* Custom Styles */
+  /* Set color on severity element */
+  const [severityColor, setSeverityColor] = useState("");
+  useEffect(() => {
+    if (severity === "high") {
+      setSeverityColor("#CB234E");
+    } else if (severity === "medium") {
+      setSeverityColor("#F5A623");
+    } else {
+      setSeverityColor("#7CC9A4");
+    }
+  }, [severity]);
+
+  /* Custom Styles */
   const useStyles = makeStyles({
     buttonBox: {
       backgroundColor: "#5B88FB",
@@ -34,40 +46,39 @@ const TableItem = () => {
   });
   const classes = useStyles();
 
-
-    return (
-        <Box className={classes.table}>
-        <Box className={classes.tableItem}>
-          <Typography
-            style={{
-              marginLeft: "55px",
-            }}
-          >
-            2020-11-01 06:25:01
-          </Typography>
-          <Typography
-            style={{
-              marginRight: "30px",
-            }}
-          >
-            24 000
-          </Typography>
-          <Typography
-            style={{
-              width: "60px",
-              textAlign: "center",
-              backgroundColor: "red",
-              padding: "2px 20px",
-              borderRadius: "5px",
-              color: "white",
-              marginRight: "85px",
-            }}
-          >
-            high
-          </Typography>
-        </Box>
+  return (
+    <Box className={classes.table}>
+      <Box className={classes.tableItem}>
+        <Typography
+          style={{
+            marginLeft: "55px",
+          }}
+        >
+          {time}
+        </Typography>
+        <Typography
+          style={{
+            marginRight: "30px",
+          }}
+        >
+          {count}
+        </Typography>
+        <Typography
+          style={{
+            width: "60px",
+            textAlign: "center",
+            backgroundColor: `${severityColor}`,
+            padding: "2px 20px",
+            borderRadius: "5px",
+            color: "white",
+            marginRight: "85px",
+          }}
+        >
+          {severity}
+        </Typography>
       </Box>
-    )
-}
+    </Box>
+  );
+};
 
-export default TableItem
+export default TableItem;
