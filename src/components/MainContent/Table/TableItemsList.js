@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 const TableItemsList = () => {
   /* Get data from redux */
-  const data = useSelector((state) => state.getDummyData.data);
+  const data = useSelector((state) => state.getData.data);
 
   /* Sorted data on buttons click */
   const [sortedData, setSortedData] = useState(data);

@@ -14,7 +14,7 @@ import {
 
 function EventsChart() {
   /* Get data from redux */
-  const data = useSelector((state) => state.getDummyData.data);
+  const data = useSelector((state) => state.getData.data);
 
   /* Custom Styles */
   const useStyles = makeStyles({

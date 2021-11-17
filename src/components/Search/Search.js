@@ -6,7 +6,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import { useSelector } from "react-redux";
 
 const Search = () => {
-  const data = useSelector((state) => state.getDummyData.data);
+  const data = useSelector((state) => state.getData.data);
 
   // const [searchResult, setSearchResult] = useState([]);
   // useEffect(() => {
