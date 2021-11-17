@@ -4,10 +4,8 @@ import TimelineIcon from "@mui/icons-material/Timeline";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import ViewDayIcon from "@mui/icons-material/ViewDay";
-import Button from "@mui/material/Button";
 import { Box } from "@mui/system";
-import { Typography } from "@mui/material";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import TableItemsList from "./Table/TableItemsList";
 
 const MainContent = () => {
   /* Toggle icons */
@@ -30,30 +28,6 @@ const MainContent = () => {
       justifyContent: "flex-end",
       padding: "25px 35px",
     },
-    buttonBox: {
-      backgroundColor: "#5B88FB",
-      display: "flex",
-      justifyContent: "center",
-      marginRight: "35px",
-    },
-    buttonBoxChild: {
-      display: "flex",
-      justifyContent: "space-between",
-      width: "70%",
-    },
-    table: {
-      backgroundColor: "white",
-      display: "flex",
-      justifyContent: "center",
-      marginRight: "35px",
-    },
-    tableItem: {
-      display: "flex",
-      justifyContent: "space-between",
-      width: "80%",
-      borderBottom: "2px solid #F1F1F4",
-      padding: "20px",
-    },
   });
   const classes = useStyles();
 
@@ -74,124 +48,7 @@ const MainContent = () => {
           </ToggleButton>
         </ToggleButtonGroup>
       </Box>
-      <Box className={classes.buttonBox}>
-        <Box className={classes.buttonBoxChild}>
-          <Button
-            variant="text"
-            style={{ textTransform: "none", color: "white", padding: "12px" }}
-          >
-            Time
-            <KeyboardArrowDownIcon style={{ paddingLeft: "5px" }} />
-          </Button>
-          <Button
-            variant="text"
-            style={{ textTransform: "none", color: "white", padding: "12px" }}
-          >
-            Count
-            <KeyboardArrowDownIcon style={{ paddingLeft: "5px" }} />
-          </Button>
-          <Button
-            variant="disabled"
-            style={{ textTransform: "none", color: "white", padding: "12px" }}
-          >
-            Severity
-          </Button>
-        </Box>
-      </Box>
-
-      <Box className={classes.table}>
-        <Box className={classes.tableItem}>
-          <Typography
-            style={{
-              marginLeft: "55px",
-            }}
-          >
-            2020-11-01 06:25:01
-          </Typography>
-          <Typography
-            style={{
-              marginRight: "30px",
-            }}
-          >
-            24 000
-          </Typography>
-          <Typography
-            style={{
-              width: "60px",
-              textAlign: "center",
-              backgroundColor: "red",
-              padding: "2px 20px",
-              borderRadius: "5px",
-              color: "white",
-              marginRight: "85px",
-            }}
-          >
-            high
-          </Typography>
-        </Box>
-      </Box>
-      <Box className={classes.table}>
-        <Box className={classes.tableItem}>
-          <Typography
-            style={{
-              marginLeft: "55px",
-            }}
-          >
-            2020-11-01 06:25:01
-          </Typography>
-          <Typography
-            style={{
-              marginRight: "30px",
-            }}
-          >
-            14 000
-          </Typography>
-          <Typography
-            style={{
-              width: "60px",
-              textAlign: "center",
-              backgroundColor: "green",
-              padding: "2px 20px",
-              borderRadius: "5px",
-              color: "white",
-              marginRight: "85px",
-            }}
-          >
-            low
-          </Typography>
-        </Box>
-      </Box>
-      <Box className={classes.table}>
-        <Box className={classes.tableItem}>
-          <Typography
-            style={{
-              marginLeft: "55px",
-            }}
-          >
-            2020-11-01 06:25:01
-          </Typography>
-          <Typography
-            style={{
-              marginRight: "30px",
-            }}
-          >
-            18 000
-          </Typography>
-          <Typography
-            style={{
-              width: "60px",
-              textAlign: "center",
-              backgroundColor: "#F5A623",
-              padding: "2px 20px",
-              borderRadius: "5px",
-              color: "white",
-              marginRight: "85px",
-            }}
-          >
-            medium
-          </Typography>
-        </Box>
-      </Box>
+     <TableItemsList/>
     </Box>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Drawer, Typography } from "@mui/material";
+import { Drawer } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import EmojiObjectsOutlinedIcon from "@mui/icons-material/EmojiObjectsOutlined";
