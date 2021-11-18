@@ -6,6 +6,7 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import ViewDayIcon from "@mui/icons-material/ViewDay";
 import { Box } from "@mui/system";
 import TableItemsList from "./Table/TableItemsList";
+import Chart from "./Chart/Chart";
 
 const MainContent = () => {
   /* Toggle buttons */
@@ -57,7 +58,7 @@ const MainContent = () => {
           marginRight: "35px",
         }}
       >
-        {alignment === "table" ? <TableItemsList /> : <Box>123</Box>}
+        {alignment === "table" ? <TableItemsList /> : <Chart/>}
       </Box>
     </Box>
   );

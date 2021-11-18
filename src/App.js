@@ -1,4 +1,4 @@
-import EventsChart from "./components/Chart/EventsChart";
+import EventsChart from "./components/EventsChart/EventsChart";
 import Layout from "./components/Layout";
 import MainContent from "./components/MainContent/MainContent";
 import Search from "./components/Search/Search";
@@ -83,7 +83,7 @@ function App() {
     <div>
       <Layout>
         <Search />
-        <EventsChart />
+        <EventsChart/>
         <MainContent />
       </Layout>
     </div>
