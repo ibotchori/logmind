@@ -18,18 +18,7 @@ const TableItem = ({ time, count, severity }) => {
   }, [severity]);
 
   /* Custom Styles */
-  const useStyles = makeStyles({
-    buttonBox: {
-      backgroundColor: "#5B88FB",
-      display: "flex",
-      justifyContent: "center",
-      marginRight: "35px",
-    },
-    buttonBoxChild: {
-      display: "flex",
-      justifyContent: "space-between",
-      width: "70%",
-    },
+  const useStyles = makeStyles({  
     table: {
       backgroundColor: "white",
       display: "flex",
@@ -39,7 +28,7 @@ const TableItem = ({ time, count, severity }) => {
     tableItem: {
       display: "flex",
       justifyContent: "space-between",
-      width: "80%",
+      width: "82%",
       borderBottom: "2px solid #F1F1F4",
       padding: "20px",
     },
@@ -71,7 +60,7 @@ const TableItem = ({ time, count, severity }) => {
             padding: "2px 20px",
             borderRadius: "5px",
             color: "white",
-            marginRight: "85px",
+            marginRight: "90px",
           }}
         >
           {severity}

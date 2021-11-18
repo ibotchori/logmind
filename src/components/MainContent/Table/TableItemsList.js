@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@mui/styles";
 import Button from "@mui/material/Button";
 import { Box } from "@mui/system";
@@ -10,21 +10,26 @@ import { useSelector } from "react-redux";
 const TableItemsList = () => {
   /* Get data from redux */
   const data = useSelector((state) => state.getData.data);
+  
+  // Save data from redux to state 
+  const [items, setItems] = useState(data);
 
-  /* Sorted data on buttons click */
-  const [sortedData, setSortedData] = useState(data);
+  // Overwrite items when redux data is changed
+  useEffect(() => {
+    setItems(data)
+  }, [data])
 
   /* Count & Time  buttons click */
   const [timeButtonArrowPosition, SetTimeButtonArrowPosition] = useState(false);
   const [countButtonArrowPosition, SetCountButtonArrowPosition] =
     useState(false);
 
-  // Time button click
+  // Sort items on Time button click 
   const handleTimeClick = () => {
     SetTimeButtonArrowPosition(!timeButtonArrowPosition);
     // Sort array of objects by property
-    setSortedData(
-      sortedData.sort((a, b) =>
+    setItems(
+      items.sort((a, b) =>
       timeButtonArrowPosition
           ? +a.time < +b.time
             ? 1
@@ -36,12 +41,12 @@ const TableItemsList = () => {
     );
   };
 
-  // Count button click
+  // Sort items on Count button click
   const handleCountClick = () => {
     SetCountButtonArrowPosition(!countButtonArrowPosition);
-    setSortedData(
+    setItems(
       // Sort array of objects by property
-      sortedData.sort((a, b) =>
+      items.sort((a, b) =>
         countButtonArrowPosition
           ? a.Count > b.Count
             ? 1
@@ -65,19 +70,6 @@ const TableItemsList = () => {
       display: "flex",
       justifyContent: "space-between",
       width: "70%",
-    },
-    table: {
-      backgroundColor: "white",
-      display: "flex",
-      justifyContent: "center",
-      marginRight: "35px",
-    },
-    tableItem: {
-      display: "flex",
-      justifyContent: "space-between",
-      width: "80%",
-      borderBottom: "2px solid #F1F1F4",
-      padding: "20px",
     },
   });
   const classes = useStyles();
@@ -117,7 +109,7 @@ const TableItemsList = () => {
           </Button>
         </Box>
       </Box>
-      {sortedData.map((item) => (
+      {items.map((item) => (
         <TableItem
           time={item.time}
           count={item.Count}

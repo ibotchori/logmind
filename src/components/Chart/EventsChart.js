@@ -1,6 +1,6 @@
 import { Box } from "@mui/system";
 import { makeStyles } from "@mui/styles";
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import {
   XAxis,
@@ -15,6 +15,9 @@ import {
 function EventsChart() {
   /* Get data from redux */
   const data = useSelector((state) => state.getData.data);
+
+  /* Save data from redux to state (to prevent the chart from changing when the redux data changes) */
+  const [state, setState] = useState(data);
 
   /* Custom Styles */
   const useStyles = makeStyles({
@@ -36,7 +39,7 @@ function EventsChart() {
         <AreaChart
           width={730}
           height={250}
-          data={data}
+          data={state}
           margin={{ top: 35, right: 30, left: 0, bottom: 15 }}
         >
           <defs>
