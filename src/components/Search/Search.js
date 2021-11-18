@@ -5,6 +5,7 @@ import { Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import { useSelector, useDispatch } from "react-redux";
 import { getDataAction } from "../../redux/actions";
+import SentimentDissatisfiedOutlinedIcon from "@mui/icons-material/SentimentDissatisfiedOutlined";
 
 const Search = () => {
   /* Get data from redux */
@@ -53,8 +54,25 @@ const Search = () => {
         />
       </Box>
       <Box sx={{ display: "flex", paddingLeft: "40px", paddingTop: "15px" }}>
-        <CheckIcon fontSize="small" sx={{ paddingRight: "5px" }} />
-        <Typography variant="subtitle2">{data.length} results found</Typography>
+        {data.length ? (
+          <>
+            <CheckIcon
+              fontSize="small"
+              sx={{ paddingRight: "5px", color: "#7CC9A4" }}
+            />
+            <Typography variant="subtitle2">
+              {data.length} results found
+            </Typography>
+          </>
+        ) : (
+          <>
+            <SentimentDissatisfiedOutlinedIcon
+              fontSize="small"
+              sx={{ paddingRight: "5px", color: "#CB234E" }}
+            />
+            <Typography variant="subtitle2">No results found</Typography>
+          </>
+        )}
       </Box>
     </>
   );
