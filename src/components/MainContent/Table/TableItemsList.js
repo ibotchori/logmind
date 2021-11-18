@@ -6,31 +6,32 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import TableItem from "./TableItem";
 import { useSelector } from "react-redux";
+import { Typography } from "@mui/material";
 
 const TableItemsList = () => {
   /* Get data from redux */
   const data = useSelector((state) => state.getData.data);
-  
-  // Save data from redux to state 
+
+  // Save data from redux to state
   const [items, setItems] = useState(data);
 
   // Overwrite items when redux data is changed
   useEffect(() => {
-    setItems(data)
-  }, [data])
+    setItems(data);
+  }, [data]);
 
   /* Count & Time  buttons click */
   const [timeButtonArrowPosition, SetTimeButtonArrowPosition] = useState(false);
   const [countButtonArrowPosition, SetCountButtonArrowPosition] =
     useState(false);
 
-  // Sort items on Time button click 
+  // Sort items on Time button click
   const handleTimeClick = () => {
     SetTimeButtonArrowPosition(!timeButtonArrowPosition);
     // Sort array of objects by property
     setItems(
       items.sort((a, b) =>
-      timeButtonArrowPosition
+        timeButtonArrowPosition
           ? +a.time < +b.time
             ? 1
             : -1
@@ -61,6 +62,7 @@ const TableItemsList = () => {
   /* Custom Styles */
   const useStyles = makeStyles({
     buttonBox: {
+      width: "100%",
       backgroundColor: "#5B88FB",
       display: "flex",
       justifyContent: "center",
@@ -109,13 +111,19 @@ const TableItemsList = () => {
           </Button>
         </Box>
       </Box>
-      {items.map((item) => (
-        <TableItem
-          time={item.time}
-          count={item.Count}
-          severity={item.priority}
-        />
-      ))}
+      {items.length > 0 ? (
+        items.map((item) => (
+          <TableItem
+            time={item.time}
+            count={item.Count}
+            severity={item.priority}
+          />
+        ))
+      ) : (
+        <Box style={{ padding: "50px", textAlign: "center" }}>
+          <Typography variant="h5">No result found</Typography>{" "}
+        </Box>
+      )}
     </div>
   );
 };

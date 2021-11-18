@@ -4,7 +4,6 @@ import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 
 const TableItem = ({ time, count, severity }) => {
-
   /* Set color on severity element */
   const [severityColor, setSeverityColor] = useState("");
   useEffect(() => {
@@ -18,7 +17,7 @@ const TableItem = ({ time, count, severity }) => {
   }, [severity]);
 
   /* Custom Styles */
-  const useStyles = makeStyles({  
+  const useStyles = makeStyles({
     table: {
       backgroundColor: "white",
       display: "flex",
@@ -40,7 +39,7 @@ const TableItem = ({ time, count, severity }) => {
       <Box className={classes.tableItem}>
         <Typography
           style={{
-            marginLeft: "55px",
+            marginLeft: "60px",
           }}
         >
           {time}
@@ -60,7 +59,7 @@ const TableItem = ({ time, count, severity }) => {
             padding: "2px 20px",
             borderRadius: "5px",
             color: "white",
-            marginRight: "90px",
+            marginRight: "60px",
           }}
         >
           {severity}

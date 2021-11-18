@@ -23,6 +23,7 @@ const MainContent = () => {
       margin: "20px 40px",
       display: "flex",
       flexDirection: "column",
+      minHeight: "150px",
     },
     toggleButtonBox: {
       display: "flex",
@@ -49,7 +50,15 @@ const MainContent = () => {
           </ToggleButton>
         </ToggleButtonGroup>
       </Box>
-      {alignment === "table" ? <TableItemsList /> : console.log("test")}
+      <Box
+        style={{
+          border: "1px solid #F1F1F4",
+          paddingBottom: "60px",
+          marginRight: "35px",
+        }}
+      >
+        {alignment === "table" ? <TableItemsList /> : <Box>123</Box>}
+      </Box>
     </Box>
   );
 };
