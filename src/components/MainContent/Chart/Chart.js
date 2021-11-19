@@ -75,7 +75,7 @@ const Chart = () => {
           <Line
             connectNulls
             type="monotone"
-            dataKey="Severity"
+            dataKey={ySerriesSelect}
             stroke="#EBB57C"
             fill="#8884d8"
             strokeWidth={sliderValueState}
