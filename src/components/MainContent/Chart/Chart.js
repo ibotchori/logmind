@@ -68,7 +68,7 @@ const Chart = () => {
             bottom: 0,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
+          <CartesianGrid strokeDasharray="1" />
           {checked ? <XAxis dataKey="name" /> : <XAxis visibility="hidden" />}
           {checked ? <YAxis /> : <YAxis visibility="hidden" />}
           <Tooltip />
