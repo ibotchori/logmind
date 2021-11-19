@@ -9,6 +9,14 @@ import Select from "@mui/material/Select";
 
 import Slider from "@mui/material/Slider";
 
+import { Typography } from "@mui/material";
+import FormControlLabel from "@mui/material/FormControlLabel";
+
+import Checkbox from "@mui/material/Checkbox";
+
+import LabelIcon from "@mui/icons-material/Label";
+import LabelOffIcon from "@mui/icons-material/LabelOff";
+
 import {
   LineChart,
   Line,
@@ -18,7 +26,6 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { Typography } from "@mui/material";
 
 const Chart = () => {
   /* Get data from redux */
@@ -33,6 +40,13 @@ const Chart = () => {
   };
   const handleChangeY = (event) => {
     setYSerriesSelect(event.target.value);
+  };
+
+  // checkbox
+  const [checked, setChecked] = useState(true);
+
+  const handleChange = (e) => {
+    setChecked(e.target.checked);
   };
 
   return (
@@ -64,8 +78,8 @@ const Chart = () => {
       </ResponsiveContainer>
       <Box
         style={{
-          maxWidth: 250,          
-          padding: "20px 0 20px 0",
+          maxWidth: 250,
+          padding: "20px 0 60px 10px",
           display: "flex",
           justifyContent: "space-between",
           flexDirection: "column",
@@ -125,6 +139,22 @@ const Chart = () => {
             defaultValue={70}
             aria-label="Small"
             valueLabelDisplay="auto"
+          />
+        </Box>
+        <Box style={{ paddingLeft: "10px" }}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                icon={<LabelOffIcon />}
+                checkedIcon={<LabelIcon />}
+                checked={checked}
+                inputProps={{
+                  "aria-label": "primary checkbox",
+                }}
+                onChange={handleChange}
+              />
+            }
+            label="Show Label"
           />
         </Box>
       </Box>
