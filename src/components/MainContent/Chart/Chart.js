@@ -7,6 +7,8 @@ import FormHelperText from "@mui/material/FormHelperText";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 
+import Slider from "@mui/material/Slider";
+
 import {
   LineChart,
   Line,
@@ -16,6 +18,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { Typography } from "@mui/material";
 
 const Chart = () => {
   /* Get data from redux */
@@ -59,9 +62,17 @@ const Chart = () => {
           />
         </LineChart>
       </ResponsiveContainer>
-      <Box style={{ maxWidth: 250, margin: "18px 0 0 35px " }}>
+      <Box
+        style={{
+          maxWidth: 250,          
+          padding: "20px 0 20px 0",
+          display: "flex",
+          justifyContent: "space-between",
+          flexDirection: "column",
+        }}
+      >
         <FormControl sx={{ m: 1, width: 250 }}>
-          <FormHelperText
+          <Typography
             style={{
               fontSize: "15px",
               margin: "0 15px 10px 0",
@@ -69,7 +80,7 @@ const Chart = () => {
             }}
           >
             X serries
-          </FormHelperText>
+          </Typography>
           <Select
             value={xSerriesSelect}
             onChange={handleChangeX}
@@ -80,7 +91,7 @@ const Chart = () => {
           </Select>
         </FormControl>
         <FormControl sx={{ m: 1, minWidth: 250 }}>
-          <FormHelperText
+          <Typography
             style={{
               fontSize: "15px",
               margin: "0 15px 10px 0",
@@ -88,7 +99,7 @@ const Chart = () => {
             }}
           >
             Y serries
-          </FormHelperText>
+          </Typography>
           <Select
             value={ySerriesSelect}
             onChange={handleChangeY}
@@ -99,6 +110,23 @@ const Chart = () => {
             <MenuItem value="Severity">Severity</MenuItem>
           </Select>
         </FormControl>
+        <Box width={250} style={{ paddingLeft: "10px" }}>
+          <Typography
+            style={{
+              fontSize: "15px",
+
+              fontWeight: "bold",
+            }}
+          >
+            Line weight
+          </Typography>
+          <Slider
+            size="medium"
+            defaultValue={70}
+            aria-label="Small"
+            valueLabelDisplay="auto"
+          />
+        </Box>
       </Box>
     </Box>
   );
