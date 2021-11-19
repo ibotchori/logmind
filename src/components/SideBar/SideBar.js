@@ -4,10 +4,10 @@ import { makeStyles } from "@mui/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import EmojiObjectsOutlinedIcon from "@mui/icons-material/EmojiObjectsOutlined";
 import PieChartOutlinedIcon from "@mui/icons-material/PieChartOutlined";
-
 import Button from "@mui/material/Button";
 import { Box } from "@mui/system";
 
+// Custom styles
 const useStyles = makeStyles({
   box: {
     borderLeft: "solid 4px transparent",
@@ -21,11 +21,17 @@ const useStyles = makeStyles({
 });
 
 const SideBar = () => {
+
+  // Reload page Logo click
+  const reloadPage = () => {
+    window.location.reload();
+  };
+
   const classes = useStyles();
   return (
     <Drawer variant="permanent" anchor="left">
       <Box className={classes.box}>
-        <Button>
+        <Button onClick={reloadPage}>
           <svg
             className={classes.icon}
             width="36"
