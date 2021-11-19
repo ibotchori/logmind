@@ -54,7 +54,7 @@ function EventsChart() {
           </defs>
           <XAxis dataKey="name" />
           <YAxis />
-          <CartesianGrid strokeDasharray="3 3" />
+          <CartesianGrid strokeDasharray="3 3" horizontal="" />
           <Tooltip />
           <Area
             type="monotone"
