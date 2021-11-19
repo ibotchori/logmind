@@ -55,7 +55,7 @@ function EventsChart() {
           <XAxis dataKey="name" />
           <YAxis />
           <CartesianGrid strokeDasharray="1" vertical="" />
-          <Tooltip />
+          <Tooltip contentStyle={{width: "200px", border: "0", fontSize: '12px', borderRadius: '5px', fontWeight:'bold', padding: '10px 0 10px 20px'}} itemStyle={{}}  cursor={false}/>
           <Area
             type="monotone"
             dataKey="Count"
