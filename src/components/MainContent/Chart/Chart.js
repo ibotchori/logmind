@@ -85,56 +85,57 @@ const Chart = () => {
       <Box
         style={{
           maxWidth: 250,
-          padding: "20px 0 60px 10px",
+          padding: "20px 0 80px 10px",
           display: "flex",
           justifyContent: "space-between",
           flexDirection: "column",
         }}
       >
-        <FormControl sx={{ m: 1, width: 250 }}>
-          <Typography
-            style={{
-              fontSize: "15px",
-              margin: "0 15px 10px 0",
-              fontWeight: "bold",
-            }}
-          >
-            X serries
-          </Typography>
-          <Select
-            value={xSerriesSelect}
-            onChange={handleChangeX}
-            displayEmpty
-            inputProps={{ "aria-label": "Without label" }}
-          >
-            <MenuItem value="Timestamp">Timestamp</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl sx={{ m: 1, minWidth: 250 }}>
-          <Typography
-            style={{
-              fontSize: "15px",
-              margin: "0 15px 10px 0",
-              fontWeight: "bold",
-            }}
-          >
-            Y serries
-          </Typography>
-          <Select
-            value={ySerriesSelect}
-            onChange={handleChangeY}
-            displayEmpty
-            inputProps={{ "aria-label": "Without label" }}
-          >
-            <MenuItem value="Count">Count</MenuItem>
-            <MenuItem value="Severity">Severity</MenuItem>
-          </Select>
-        </FormControl>
+        <Box style={{ paddingBottom: "10px" }}>
+          <FormControl sx={{ m: 1, width: 250 }}>
+            <Typography
+              style={{
+                fontSize: "15px",
+                margin: "0 15px 10px 0",
+                fontWeight: "bold",
+              }}
+            >
+              X serries
+            </Typography>
+            <Select
+              value={xSerriesSelect}
+              onChange={handleChangeX}
+              displayEmpty
+              inputProps={{ "aria-label": "Without label" }}
+            >
+              <MenuItem value="Timestamp">Timestamp</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl sx={{ m: 1, width: 250 }}>
+            <Typography
+              style={{
+                fontSize: "15px",
+                margin: "0 15px 10px 0",
+                fontWeight: "bold",
+              }}
+            >
+              Y serries
+            </Typography>
+            <Select
+              value={ySerriesSelect}
+              onChange={handleChangeY}
+              displayEmpty
+              inputProps={{ "aria-label": "Without label" }}
+            >
+              <MenuItem value="Count">Count</MenuItem>
+              <MenuItem value="Severity">Severity</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
         <Box width={250} style={{ paddingLeft: "10px" }}>
           <Typography
             style={{
               fontSize: "15px",
-
               fontWeight: "bold",
             }}
           >
