@@ -31,7 +31,7 @@ const Chart = () => {
   const data = useSelector((state) => state.getData.data);
 
   // Select
-  const [xSerriesSelect, setXSerriesSelect] = useState("Timestamp");
+  const [xSerriesSelect, setXSerriesSelect] = useState("time");
   const [ySerriesSelect, setYSerriesSelect] = useState("Count");
 
   const handleChangeX = (event) => {
@@ -69,7 +69,7 @@ const Chart = () => {
           }}
         >
           <CartesianGrid strokeDasharray="1" />
-          {checked ? <XAxis dataKey="name" /> : <XAxis visibility="hidden" />}
+          {checked ? <XAxis dataKey={xSerriesSelect} /> : <XAxis visibility="hidden" />}
           {checked ? <YAxis /> : <YAxis visibility="hidden" />}
           <Tooltip />
           <Line
@@ -108,7 +108,10 @@ const Chart = () => {
               displayEmpty
               inputProps={{ "aria-label": "Without label" }}
             >
-              <MenuItem value="Timestamp">Timestamp</MenuItem>
+              <MenuItem value="time">Timestamp</MenuItem>
+              <MenuItem value="name">Date</MenuItem>
+
+              
             </Select>
           </FormControl>
           <FormControl sx={{ m: 1, width: 250 }}>
