@@ -42,7 +42,7 @@ const Chart = () => {
   };
 
   // slider
-  const [sliderValueState, setSliderValueState] = useState(5)
+  const [sliderValueState, setSliderValueState] = useState(5);
   const sliderHandler = (event) => {
     setSliderValueState(event.target.value);
   };
@@ -69,8 +69,8 @@ const Chart = () => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
+          {checked ? <XAxis dataKey="name" /> : <XAxis visibility="hidden" />}
+          {checked ? <YAxis /> : <YAxis visibility="hidden" />}
           <Tooltip />
           <Line
             connectNulls
