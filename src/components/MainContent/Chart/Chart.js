@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { Box } from "@mui/system";
 
 import FormControl from "@mui/material/FormControl";
-import FormHelperText from "@mui/material/FormHelperText";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 
@@ -42,6 +41,12 @@ const Chart = () => {
     setYSerriesSelect(event.target.value);
   };
 
+  // slider
+  const [sliderValueState, setSliderValueState] = useState(5)
+  const sliderHandler = (event) => {
+    setSliderValueState(event.target.value);
+  };
+
   // checkbox
   const [checked, setChecked] = useState(true);
 
@@ -71,8 +76,9 @@ const Chart = () => {
             connectNulls
             type="monotone"
             dataKey="Severity"
-            stroke="#8884d8"
+            stroke="#EBB57C"
             fill="#8884d8"
+            strokeWidth={sliderValueState}
           />
         </LineChart>
       </ResponsiveContainer>
@@ -136,9 +142,10 @@ const Chart = () => {
           </Typography>
           <Slider
             size="medium"
-            defaultValue={70}
             aria-label="Small"
             valueLabelDisplay="auto"
+            onChange={sliderHandler}
+            defaultValue={sliderValueState}
           />
         </Box>
         <Box style={{ paddingLeft: "10px" }}>
