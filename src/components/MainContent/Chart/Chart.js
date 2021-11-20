@@ -1,21 +1,9 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/system";
-
-import FormControl from "@mui/material/FormControl";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-
-import Slider from "@mui/material/Slider";
-
-import { Typography } from "@mui/material";
-import FormControlLabel from "@mui/material/FormControlLabel";
-
-import Checkbox from "@mui/material/Checkbox";
-
-import LabelIcon from "@mui/icons-material/Label";
-import LabelOffIcon from "@mui/icons-material/LabelOff";
-
+import ChartCheckbox from "./ChartControllers/ChartCheckbox";
+import ChartSelect from "./ChartControllers/ChartSelect";
+import ChartSlider from "./ChartControllers/ChartSlider";
 import {
   LineChart,
   Line,
@@ -25,6 +13,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+
 
 const Chart = () => {
   /* Get data from redux */
@@ -41,13 +30,13 @@ const Chart = () => {
     setYSerriesSelect(event.target.value);
   };
 
-  // slider
+  // Slider
   const [sliderValueState, setSliderValueState] = useState(5);
   const sliderHandler = (event) => {
     setSliderValueState(event.target.value);
   };
 
-  // checkbox
+  // Checkbox
   const [checked, setChecked] = useState(true);
 
   const handleChange = (e) => {
@@ -69,7 +58,11 @@ const Chart = () => {
           }}
         >
           <CartesianGrid strokeDasharray="1" />
-          {checked ? <XAxis dataKey={xSerriesSelect} /> : <XAxis visibility="hidden" />}
+          {checked ? (
+            <XAxis dataKey={xSerriesSelect} />
+          ) : (
+            <XAxis visibility="hidden" />
+          )}
           {checked ? <YAxis /> : <YAxis visibility="hidden" />}
           <Tooltip />
           <Line
@@ -91,83 +84,17 @@ const Chart = () => {
           flexDirection: "column",
         }}
       >
-        <Box style={{ paddingBottom: "10px" }}>
-          <FormControl sx={{ m: 1, width: 250 }}>
-            <Typography
-              style={{
-                fontSize: "15px",
-                margin: "0 15px 10px 0",
-                fontWeight: "bold",
-              }}
-            >
-              X serries
-            </Typography>
-            <Select
-              value={xSerriesSelect}
-              onChange={handleChangeX}
-              displayEmpty
-              inputProps={{ "aria-label": "Without label" }}
-            >
-              <MenuItem value="time">Timestamp</MenuItem>
-              <MenuItem value="name">Date</MenuItem>
-
-              
-            </Select>
-          </FormControl>
-          <FormControl sx={{ m: 1, width: 250 }}>
-            <Typography
-              style={{
-                fontSize: "15px",
-                margin: "0 15px 10px 0",
-                fontWeight: "bold",
-              }}
-            >
-              Y serries
-            </Typography>
-            <Select
-              value={ySerriesSelect}
-              onChange={handleChangeY}
-              displayEmpty
-              inputProps={{ "aria-label": "Without label" }}
-            >
-              <MenuItem value="Count">Count</MenuItem>
-              <MenuItem value="Severity">Severity</MenuItem>
-            </Select>
-          </FormControl>
-        </Box>
-        <Box width={250} style={{ paddingLeft: "10px" }}>
-          <Typography
-            style={{
-              fontSize: "15px",
-              fontWeight: "bold",
-            }}
-          >
-            Line weight
-          </Typography>
-          <Slider
-            size="medium"
-            aria-label="Small"
-            valueLabelDisplay="auto"
-            onChange={sliderHandler}
-            defaultValue={sliderValueState}
-          />
-        </Box>
-        <Box style={{ paddingLeft: "10px" }}>
-          <FormControlLabel
-            control={
-              <Checkbox
-                icon={<LabelOffIcon />}
-                checkedIcon={<LabelIcon />}
-                checked={checked}
-                inputProps={{
-                  "aria-label": "primary checkbox",
-                }}
-                onChange={handleChange}
-              />
-            }
-            label="Show Label"
-          />
-        </Box>
+        <ChartSelect
+          handleChangeX={handleChangeX}
+          handleChangeY={handleChangeY}
+          xSerriesSelect={xSerriesSelect}
+          ySerriesSelect={ySerriesSelect}
+        />
+        <ChartSlider
+          sliderHandler={sliderHandler}
+          sliderValueState={sliderValueState}
+        />
+        <ChartCheckbox checked={checked} handleChange={handleChange} />
       </Box>
     </Box>
   );
