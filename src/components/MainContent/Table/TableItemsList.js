@@ -121,7 +121,7 @@ const TableItemsList = () => {
         ))
       ) : (
         <Box style={{ padding: "50px", textAlign: "center" }}>
-          <Typography variant="h5">No result found</Typography>{" "}
+          <Typography variant="h5">No results found</Typography>{" "}
         </Box>
       )}
     </div>
