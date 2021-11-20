@@ -15,7 +15,7 @@ import {
 } from "recharts";
 
 
-const Chart = () => {
+const ToggleChart = () => {
   /* Get data from redux */
   const data = useSelector((state) => state.getData.data);
 
@@ -100,4 +100,4 @@ const Chart = () => {
   );
 };
 
-export default Chart;
+export default ToggleChart;
