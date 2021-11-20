@@ -6,11 +6,12 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   root: {
     display: "flex",
+    backgroundColor: "#F0EFEF",
   },
 
   page: {
     backgroundColor: "#F0EFEF",
-    width: "100%",
+    maxWidth: "94%",
     minHeight: "100vh",
     marginLeft: '91px'
   },

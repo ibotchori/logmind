@@ -38,6 +38,7 @@ const Search = () => {
     <>
       <Box
         sx={{
+          width: "99.60%",
           padding: "15px",
           backgroundColor: "#494D58",
           display: "flex",
