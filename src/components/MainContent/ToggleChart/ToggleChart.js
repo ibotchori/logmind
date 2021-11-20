@@ -13,6 +13,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import styles from './ToggleChart.module.css'
 
 
 const ToggleChart = () => {
@@ -44,7 +45,7 @@ const ToggleChart = () => {
   };
 
   return (
-    <Box style={{ display: "flex" }}>
+    <Box style={{display: 'flex'}} className={styles.test} >
       <ResponsiveContainer width="80%" height={450}>
         <LineChart
           width={500}
