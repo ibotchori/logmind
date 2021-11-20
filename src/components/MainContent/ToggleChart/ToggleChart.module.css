@@ -1,6 +1,6 @@
 @media only screen and (max-width: 1200px){
     /*Tablets [601px -> 1200px]*/
-    .test{
+    .body{
         flex-direction: column;
         align-items: center;        
     }

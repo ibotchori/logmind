@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { makeStyles } from "@mui/styles";
 import styles from "./ToggleChart.module.css";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/system";
@@ -17,8 +18,9 @@ import {
 } from "recharts";
 
 
+
 const ToggleChart = () => {
-  
+
   /* Get data from redux */
   const data = useSelector((state) => state.getData.data);
 
@@ -46,8 +48,20 @@ const ToggleChart = () => {
     setChecked(e.target.checked);
   };
 
+    /* Custom Styles */
+    const useStyles = makeStyles({
+      chartControlBox: {
+        maxWidth: 250,
+        padding: "20px 0 80px 10px",
+        display: "flex",
+        justifyContent: "space-between",
+        flexDirection: "column",
+      },
+    });
+    const classes = useStyles();
+
   return (
-    <Box style={{ display: "flex" }} className={styles.test}>
+    <Box style={{ display: "flex" }} className={styles.body}>
       {data.length > 0 ? (
         <>
           <ResponsiveContainer width="80%" height={450}>
@@ -81,13 +95,7 @@ const ToggleChart = () => {
             </LineChart>
           </ResponsiveContainer>
           <Box
-            style={{
-              maxWidth: 250,
-              padding: "20px 0 80px 10px",
-              display: "flex",
-              justifyContent: "space-between",
-              flexDirection: "column",
-            }}
+           className={classes.chartControlBox}
           >
             <ChartSelect
               handleChangeX={handleChangeX}

@@ -73,6 +73,10 @@ const TableItemsList = () => {
       justifyContent: "space-between",
       width: "70%",
     },
+    icon:
+  {
+    paddingLeft: "5px"
+  }
   });
   const classes = useStyles();
   return (
@@ -86,9 +90,9 @@ const TableItemsList = () => {
           >
             Time
             {timeButtonArrowPosition ? (
-              <KeyboardArrowDownIcon style={{ paddingLeft: "5px" }} />
+              <KeyboardArrowDownIcon className={classes.icon} />
             ) : (
-              <KeyboardArrowUpIcon style={{ paddingLeft: "5px" }} />
+              <KeyboardArrowUpIcon className={classes.icon} />
             )}
           </Button>
           <Button
@@ -98,9 +102,9 @@ const TableItemsList = () => {
           >
             Count
             {countButtonArrowPosition ? (
-              <KeyboardArrowDownIcon style={{ paddingLeft: "5px" }} />
+              <KeyboardArrowDownIcon className={classes.icon} />
             ) : (
-              <KeyboardArrowUpIcon style={{ paddingLeft: "5px" }} />
+              <KeyboardArrowUpIcon className={classes.icon} />
             )}
           </Button>
           <Button

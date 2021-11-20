@@ -31,6 +31,11 @@ const MainContent = () => {
       justifyContent: "flex-end",
       padding: "25px 35px",
     },
+    chartBox: {
+      border: "1px solid #F1F1F4",
+      paddingBottom: "60px",
+      marginRight: "35px",
+    },
   });
   const classes = useStyles();
 
@@ -51,14 +56,8 @@ const MainContent = () => {
           </ToggleButton>
         </ToggleButtonGroup>
       </Box>
-      <Box
-        style={{
-          border: "1px solid #F1F1F4",
-          paddingBottom: "60px",
-          marginRight: "35px",
-        }}
-      >
-        {alignment === "table" ? <TableItemsList /> : <ToggleChart/>}
+      <Box className={classes.chartBox}>
+        {alignment === "table" ? <TableItemsList /> : <ToggleChart />}
       </Box>
     </Box>
   );
