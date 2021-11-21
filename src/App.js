@@ -1,5 +1,5 @@
 import EventsChart from "./components/EventsChart/EventsChart";
-import Layout from "./components/Layout";
+import Layout from "./components/Layout/Layout";
 import MainContent from "./components/MainContent/MainContent";
 import Search from "./components/Search/Search";
 import { useDispatch } from "react-redux";

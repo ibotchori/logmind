@@ -1,11 +1,12 @@
 import React from "react";
 import SideBar from "./SideBar/SideBar";
 import { makeStyles } from "@mui/styles";
-
+import { Footer } from "./Footer/Footer";
 
 const useStyles = makeStyles({
   root: {
     display: "flex",
+    flexDirection: "column",
     backgroundColor: "#F0EFEF",
   },
 
@@ -13,7 +14,7 @@ const useStyles = makeStyles({
     backgroundColor: "#F0EFEF",
     maxWidth: "94%",
     minHeight: "100vh",
-    marginLeft: '91px'
+    marginLeft: "91px",
   },
 });
 
@@ -21,8 +22,9 @@ const Layout = ({ children }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <SideBar/>
+      <SideBar />
       <div className={classes.page}>{children}</div>
+      <Footer />
     </div>
   );
 };

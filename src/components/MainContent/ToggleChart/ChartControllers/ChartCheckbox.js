@@ -20,7 +20,7 @@ const ChartCheckbox = ({ checked, handleChange }) => {
             onChange={handleChange}
           />
         }
-        label="Show Label"
+        label={checked ? "Hide Label" : "Show Label"}
       />
     </Box>
   );
